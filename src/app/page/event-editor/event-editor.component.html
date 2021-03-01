@@ -11,8 +11,12 @@
       </div>
       <div class="form-group">
         <label for="">Date</label>
+        <!-- https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s04.html -->
         <input name="date" [(ngModel)]="event.date" type="text"
-          class="form-control">
+          class="form-control" pattern="^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$" required>
+        <div [hidden]="eventForm.controls.name?.valid" class="error-message">
+          The date expression must have the following format: DD/MM/YYYY.
+         </div>  
       </div>
       <div class="form-group">
         <label for="">Time</label>
