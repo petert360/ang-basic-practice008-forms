@@ -4,7 +4,7 @@
       <div class="form-group">
         <label for="">Name</label>
         <input name="name" [(ngModel)]="event.name" type="text"
-          class="form-control" pattern=".{8,}" required>
+          class="form-control" pattern=".{10,25}" required>
         <div [hidden]="eventForm.controls.name?.valid" class="error-message">
           The name must be minimum 8 characters.
         </div>
