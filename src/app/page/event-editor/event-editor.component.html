@@ -14,13 +14,17 @@
         <!-- https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s04.html -->
         <input name="date" [(ngModel)]="event.date" type="text"
           class="form-control" pattern="^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$" required>
-        <div [hidden]="eventForm.controls.name?.valid" class="error-message">
+        <div [hidden]="eventForm.controls.date?.valid" class="error-message">
           The date expression must have the following format: DD/MM/YYYY.
          </div>  
       </div>
       <div class="form-group">
         <label for="">Time</label>
-        <input name="time" [(ngModel)]="event.time" type="text" class="form-control">
+        <input name="time" [(ngModel)]="event.time" type="text" class="form-control" pattern="(0?[1-9]|1[0-2])(am|pm)" required>
+        <div [hidden]="eventForm.controls.time?.valid" class="error-message">
+          The time expression must have the following format: hham or hhpm.
+         </div>  
+
       </div>
       <div class="form-group">
         <label for="">Country</label>
@@ -41,3 +45,4 @@
     </form>
   </div>
 </div>
+
